@@ -9,14 +9,17 @@ commands.help = function() {
   var output = "<div>" +
     "<p><strong>Fake Terminal</strong> is a thing that looks like a terminal but it does not do anything for real. Ideal for </p>" +
     "<p>easter eggs, boss screens, April Fool's jokes, and more. Currently this does not do a whole lot but</p>" +
-    "<p>with your help we can make this the best fake terminal in the world. Join the project or remix this</p>" +
-    "<p>on Glitch: <a href=\"https://glitch.com/edit/#!/fake-terminal\" target=\"_blank\">https://glitch.com/edit/#!/fake-terminal</a></p>" +
+    "<p>with your help we can make this the best fake terminal in the world.</p>" +
+    "<p>&nbsp;</p>" +
+    "<p>Join the project or remix this on Glitch: <a href=\"https://glitch.com/edit/#!/fake-terminal\" target=\"_blank\">https://glitch.com/edit/#!/fake-terminal</a></p>" +
+    "<p>Or on GitHub: <a href=\"https://github.com/louh/fake-terminal\" target=\"_blank\">https://github.com/louh/fake-terminal</a></p>" +
     "<p>&nbsp;</p>" +
     "<p>Here are the currently available commands:</p>" +
     "<ul>" +
     "<li><strong>help</strong> - display this help.</li>" +
     "<li><strong>echo &lt;string&gt</strong> - write arguments to the standard output</li>" +
     "<li><strong>exit</strong> - kill terminal process</li>" +
+    "<li><strong>su &lt;username&gt</strong> - substitute user identity</li>" +
     "</ul></div>"
   return output
 }
@@ -50,6 +53,13 @@ commands.look = function (args) {
   }
 }
 
+commands.su = function (args) {
+  if (args.length > 1) {
+    Terminal.user = args[1]
+  }
+  return ''
+}
+
 commands.exit = function (args) {
   Terminal.exit()
   console.log('[Process completed]')
@@ -60,7 +70,7 @@ function initTerminal() {
 
   Terminal.init('terminal', {
     commands: commands,
-    prompt: 'root@' + window.location.hostname + ' &sim; ',
+    prompt: '\\u@\\H $ ',
     intro: '<p>Welcome to Fake Terminal. Type \'help\' to get started.</p><p>&nbsp;</p>'
   })
 }

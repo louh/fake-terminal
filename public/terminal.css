@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@import 'font.css';
 
 .terminal {
   box-sizing: border-box;
@@ -9,11 +10,14 @@
   height: 100%;
   padding: 12px;
   margin: 0;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'pxplus_ibm_vga8regular', monospace;
   background-color: black;
-  color: white;
+  color: lightgray;
   line-height: 1.2;
   overflow-y: auto;
+  
+  font-smooth: never;
+  -webkit-font-smoothing: none;
 }
 
 .terminal-output {
@@ -47,7 +51,6 @@
 
 .terminal .terminal-prompt {
   color: cyan;
-  font-weight: bold;
 }
 
 .terminal a,
@@ -55,5 +58,9 @@
 .terminal a:active,
 .terminal a:hover {
   color: magenta;
-  font-weight: bold;
+}
+
+.terminal strong {
+  font-weight: normal;
+  color: white;
 }

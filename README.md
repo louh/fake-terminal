@@ -5,6 +5,9 @@ Hey, are you tired of real terminals, cluttering up your operating system, where
 
 We have fake terminals like you wouldn’t believe! What are you worried about? Come get fake terminals. Call us up, and order some fake terminals today. Don’t even hesitate, don’t even worry and don’t even give it a second thought. That’s our slogan. See it on the bottom of the screen, below our name. Here’s another slogan, right below that one. What are you worried about? Come get fake terminals. Get in here quick, get out quicker, with an arm of fake terminals in your arms.
 
+view / edit on Glitch: https://glitch.com/edit/#!/fake-terminal
+view / fork on GitHub: https://github.com/louh/fake-terminal
+
 product roadmap
 ---------------
 

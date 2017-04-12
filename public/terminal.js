@@ -16,9 +16,7 @@ var Terminal = (function () {
     var newPrompt = prompt.parentNode.cloneNode(true)
 
     prompt.setAttribute('contenteditable', false)
-    if (self.prompt) {
-      newPrompt.querySelector('.terminal-prompt').textContent = self.prompt
-    }
+    newPrompt.querySelector('.terminal-prompt').textContent = getPrompt(self.options.prompt)
     terminal.appendChild(newPrompt)
     newPrompt.querySelector('.terminal-input').innerHTML = ' '
     newPrompt.querySelector('.terminal-input').focus()
@@ -81,6 +79,13 @@ var Terminal = (function () {
     return suggestions
   }
   
+  var getPrompt = function (str, opts) {
+    return str
+      .replace('\\u', self.user)
+      .replace('\\H', window.location.hostname)
+      .replace('\\h', window.location.hostname.split('.')[0])
+  }
+  
   var renderElements = function (id, opts) {
     var container = document.getElementById(id)
     container.innerHTML = ''
@@ -98,7 +103,7 @@ var Terminal = (function () {
     var line = document.createElement('p')
     var prompt = document.createElement('span')
     prompt.className = 'terminal-prompt'
-    prompt.innerHTML = opts.prompt
+    prompt.innerHTML = getPrompt(opts.prompt, opts)
     line.appendChild(prompt)
     var input = document.createElement('span')
     input.className = 'terminal-input'
@@ -116,6 +121,8 @@ var Terminal = (function () {
   // Terminal functions
 
   self.init = function (containerId, opts) {
+    self.options = opts
+    self.user = opts.user || 'root'
     self.commands = opts.commands
     self.container = renderElements(containerId, opts)
     
