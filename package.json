@@ -1,12 +1,12 @@
 {
   "name": "fake-terminal",
   "version": "0.0.1",
-  "description": "What am I about?",
+  "description": "A zero-dependency fake terminal.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "express": "^4.15.2"
   },
   "engines": {
