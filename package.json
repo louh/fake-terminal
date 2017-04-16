@@ -1,6 +1,6 @@
 {
   "name": "fake-terminal",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A zero-dependency fake terminal.",
   "main": "server.js",
   "scripts": {
