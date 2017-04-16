@@ -15,7 +15,7 @@
   color: lightgray;
   line-height: 1.2;
   overflow-y: auto;
-  
+
   font-smooth: never;
   -webkit-font-smoothing: none;
 }
@@ -40,6 +40,7 @@
 .terminal p {
   margin: 0;
   padding: 0;
+  line-height: 1.2;
 }
 
 .terminal ul {
