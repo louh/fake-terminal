@@ -86,9 +86,8 @@ var Terminal = (function () {
       .replace('\\h', window.location.hostname.split('.')[0])
   }
   
-  var renderElements = function (id, opts) {
-    var container = document.getElementById(id)
-    container.innerHTML = ''
+  var createElements = function (opts) {
+    var container = document.createElement('div')
     container.classList.add('terminal')
     
     var fragment = document.createDocumentFragment()
@@ -117,6 +116,18 @@ var Terminal = (function () {
     self.output = elem
     return container
   }
+  
+  var mountTerminalElement = function (mount, el) {
+    if (mount instanceof window.HTMLElement) {
+      mount.appendChild(el)
+    } else if (typeof mount === 'string') {
+      var existing = document.getElementById(mount)
+      if (!existing) return
+      existing.appendChild(el)
+    }
+
+    return
+  }
 
   // Terminal functions
 
@@ -124,7 +135,9 @@ var Terminal = (function () {
     self.options = opts
     self.user = opts.user || 'root'
     self.commands = opts.commands
-    self.container = renderElements(containerId, opts)
+    self.container = createElements(opts)
+    
+    mountTerminalElement(containerId, self.container)
     
     self.output.addEventListener('keydown', function (event) {
       if (event.keyCode === KEY_TAB) {
@@ -184,8 +197,8 @@ var Terminal = (function () {
   }
   
   self.exit = function () {
-    self.container.innerHTML = ''
-    self.container.classList.remove('terminal')
+    var removeThis = self.container.parentNode.removeChild(self.container)
+    removeThis = null
   }
 
   return self
