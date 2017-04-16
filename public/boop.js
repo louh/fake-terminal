@@ -68,7 +68,7 @@ commands.exit = function (args) {
 function initTerminal() {
   console.log('Terminal access granted.')
 
-  Terminal.init('terminal', {
+  Terminal.init(document.body, {
     commands: commands,
     prompt: '\\u@\\H $ ',
     intro: '<p>Welcome to Fake Terminal. Type \'help\' to get started.</p><p>&nbsp;</p>'
