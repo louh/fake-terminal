@@ -13,7 +13,7 @@
     "node": "6.10.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/welcome-project"
+    "url": "https://github.com/louh/fake-terminal"
   },
   "license": "MIT",
   "keywords": [
