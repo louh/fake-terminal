@@ -87,9 +87,18 @@
 
   commands.su = function (args) {
     if (args.length > 1) {
-      Terminal.user = args[1]
+      Terminal.user = args[1];
+      return '';
+    }else{
+    return "<div>" +
+      "<p>Please provide a user name after the su command.</p>" +
+      "<p>&nbsp;</p>" +
+      "<ul"+
+      "<li><strong>su &lt;string&gt</strong> - substitute user identity</li>" +
+      "</ul>"+
+      "</div>" +
+      "<p>&nbsp;</p>";
     }
-    return ''
   }
 
   commands.exit = function (args) {
