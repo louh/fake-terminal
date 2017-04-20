@@ -34,6 +34,27 @@
     return output
   }
 
+  commands.isonline = function(args) {
+    args.shift();
+    if(args[0] == undefined){
+      return "<div>" +
+      "<p>Please provide a user name after the isonline command.</p>" +
+      "<p>&nbsp;</p>" +
+      "<ul"+
+      "<li><strong>isonline &lt;string&gt</strong> - check if a user is online</li>" +
+      "</ul>"+
+      "</div>" +
+      "<p>&nbsp;</p>";
+    }else{
+    return "<div>" +
+      "<p><strong>"+args.join(' ')+"</strong> is currently not online.</p>" +
+      "<p>&nbsp;</p>" +
+      "<p>We are about 50% sure about the result.</p>"+
+      "<p>This is because there isn't any database yet to check the available users.</p>" +
+      "</div>"
+  }
+}
+
   commands.echo = function (args) {
     args.shift()
     return args.join(' ')
