@@ -30,6 +30,7 @@
       "<li><strong>echo &lt;string&gt</strong> - write arguments to the standard output</li>" +
       "<li><strong>exit</strong> - kill terminal process</li>" +
       "<li><strong>su &lt;username&gt</strong> - substitute user identity</li>" +
+      "<li><strong>isonline &lt;string&gt</strong> - check if a user is online</li>" +
       "</ul></div>"
     return output
   }
